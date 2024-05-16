@@ -1,0 +1,112 @@
+body {
+    background-image: linear-gradient(-45deg, rosybrown, #494D5F);
+}
+
+#maintitle {
+    color: white;
+}
+
+#scrollview {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 10em;
+}
+
+.firstDiv {
+    background-color: #141619;
+    width: 1000px;
+    height: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#headDiv1 {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#paraDiv1 {
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#headDiv2 {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#paraDiv2 {
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.secondDiv {
+    background-color: #2C2E3A;
+    width: 1000px;
+    height: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#secHeadDiv1 {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#secParaDiv1 {
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+    text-align: center;
+    height: 100vh;
+    margin-top: 50px;
+}
+
+img {
+    display: inline-block;
+    position: relative;
+    width: 1400px;
+    height: 700px;
+}
+
+.member {
+    position: relative;
+    text-align: center;
+    margin-top: 0 auto;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 50px;
+    padding: 10px;
+
+}
+
+#joinBtn {
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+}
+.footer-contents {
+    background-color: #141619;
+    position:relative;
+    height: 500px;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 30px;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 30px;
+}
+
+li {
+    display: inline;
+    padding: 20px;
+    margin-right: 20px; 
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+}   
