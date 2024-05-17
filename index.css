@@ -19,7 +19,6 @@ body {
     height: 200px;
     text-align: center;
     margin: 0 auto;
-    margin-bottom: 1px;
 }
 
 #headDiv1 {
@@ -79,7 +78,7 @@ img {
     margin: 0 auto;
     background-color: #141619;
     width: 1000px;
-    height: 150px;
+    height: 190px;
     background-size: 400% 400%;
     animation: gradient 5s ease infinite;
 }
@@ -109,6 +108,14 @@ img {
     color: white;
     text-decoration: none;
     font-size: 2em;
+}
+
+#gallerybtn {
+    padding-top: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+
 }
 
 .footer-contents {
