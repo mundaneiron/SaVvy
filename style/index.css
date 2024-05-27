@@ -121,7 +121,7 @@ body {
     margin-bottom: 20px;
 }
 
-.popup {
+.signInPopup {
     display: none;
     position: fixed;
     top: 0;
@@ -132,27 +132,27 @@ body {
     z-index: 999;
 }
 
-.popup-content {
+.signInPopup-content {
     font-family: 'Courier New', Courier, monospace;
     background-color: white;
     text-align: center;
     padding-top: 10px;
-    width: 450px;
-    height: 500px;
+    width: 600px;
+    height: 650px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.close {
+.close{
     float: right;
+    font-size: 20px;
+    padding: 0 10px 0 0;
     cursor: pointer;
-    margin-right: 5px;
-}
+    border: none;
+    background: none;
 
-.close:hover {
-    color: red;
 }
 
 label {
@@ -160,15 +160,20 @@ label {
     color: black;
     font-size: 1.3em;
     font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
 }
 
-input[type="text"],
-input[type="password"] {
-    width: 400px;
-    padding: 7px;
+input[type="text"] {
+    width: 500px;
+    padding: 10px;
     margin-bottom: 10px;
+
 }
+input[type="password"] {
+    width: 500px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
 
 
 ::placeholder {
@@ -176,11 +181,28 @@ input[type="password"] {
     color: rgb(78, 78, 78);
 }
 
+#signInbtn {
+    padding: 10px;
+    width: 500px;
+    height: auto;
+    background-color: black;
+    color: white;
+    margin-bottom: 10px;
+}
+
+#signUpbtn {
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    width: 500px;
+    height: auto;
+}
+
+
 
 .footer {
     margin-top:100px;
-    background-color: white;
-    border: 0.1px solid rgb(0, 0, 0);
+    background-color: rgb(138, 138, 138);
     padding: 50px 0;
     text-align: center;
 }
@@ -209,7 +231,7 @@ input[type="password"] {
 
 .footer-bottom {
     margin-top: 20px;
-    background-color: rgba(255, 255, 255, 0.664);
+    background-color: rgb(138, 138, 138);
     font-family: 'Courier New', Courier, monospace;
     padding: 10px 0;
     font-size: 0.9rem;
