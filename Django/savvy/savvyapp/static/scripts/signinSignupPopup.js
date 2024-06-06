@@ -7,11 +7,11 @@ function closeSignIn() {
 }
 
 function openSignUp() {
-  document.getElementById('signInPopup').style.display = 'none';
-  document.getElementById('signUpPopup').style.display = 'block';
+  document.getElementById('signInPopup').style.display = "none";
+  document.getElementById('signUpPopup').style.display = "block";
 }
 
 function closeSignUp() {
-  document.getElementById('signUpPopup').style.display = 'none';
-  document.getElementById('signInPopup').style.display = 'block';
+  document.getElementById('signUpPopup').style.display = "none";
+  document.getElementById('signInPopup').style.display = "block";
 }
