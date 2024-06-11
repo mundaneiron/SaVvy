@@ -3,6 +3,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style/index.css' %}">
     <title>Home</title>
@@ -24,19 +26,12 @@
         </ul>
     </nav>
 
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dimissible fade show" role="alert">
-    <strong>Message: </strong> {{ message }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="close">
-    <span aria-hidden="true">&times;</span>
-    </div>
-    {% endfor %}
-
-    {% if user.is_authenticated %}
-    <h3> Hello {{ newUserName }} </h3>
-    <h4> You're successfully logged in. </h4>
-
-    {% else %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
     {% endif %}
 
     <div class="firstDiv">
@@ -85,15 +80,15 @@
             <button class="close" id="closeSignIn" onclick="closeSignIn()">
                 <i class="fa-solid fa-xmark" style="color: #000000;"></i>
             </button>
-            <form method="post">
+            <form action="insert" method="POST">
                 {% csrf_token %}
-                <br>
-                <br><label for="username">Username/Email</label>
-                <input type="text" name="username" id="username" placeholder="Enter Username" required>
+                <br><br>
+                <label for="username">Username</label><br>
+                <input id ="usernameInput" type="username" name="username" id="username" placeholder="Enter Username" required> <br>
     
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Enter Password" required>
-                <button type="submit" id="signInbtn">Sign In</button> <br>
+                <input id="passwordInput" type="password" name="password" id="password" placeholder="Enter Password" required>
+                <button type="submit" name="signin-submit" id="signInbtn">Sign In</button> <br>
             </form>
             <button id="signUpbtn" onclick="openSignUp()">Sign Up</button>
         </div>
@@ -104,26 +99,33 @@
             <button class="close" id="closeSignUp" onclick="closeSignUp()">
                 <i class="fa-solid fa-arrow-left" style="color: #000000;"></i>
             </button>
-            <form method="post">
+            <form action="insert" method="POST">
                 {% csrf_token %}
-                <br>
-                <label for="Email">Email</label>
-                <input type="text" name="newEmail" id="newEmail" placeholder="Enter Email" required>
-    
-                <label for="username">Create a Username</label>
-                <input type="text" name="newUserName" id="newUserName" placeholder="Enter you username" required>
-    
-                <label for="password">Create a Password</label>
-                <input type="password" name="newPassword" id="newPassword" placeholder="Enter your password" required>
-                <label for="password">ReEnter Password</label>
-                <input type="password" name="reenterPassword" id="reenterPassword" placeholder="Confirm you password" required>
-                <button type="submit" class="signUpSubmit">SignUp</button>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input class="form-control" type="text" id="username" name="username" placeholder="Create a username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" id="password" name="password" placeholder="Create password">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+                </div>
+                <div align="center">
+                    <input id="submit" type="submit" value="Submit">
+                </div>
             </form>
+            
            
         </div>
     </div>
 
-   
     
     {% load static %}
     <script src="{% static 'scripts/signinSignupPopup.js' %}"></script>
