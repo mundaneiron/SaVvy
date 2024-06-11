@@ -27,9 +27,10 @@ def insert(request):
         if form.is_valid():
             try:
                 form.save()
+                messages.success(request, 'Signup successful, please login.')
                 return redirect('homePage')
             except:
-                pass
+                messages.error(request, 'An error occurred. Please try again.')
     else:
         form = Userinfo()
     return render(request, "index.html", {'form':form})

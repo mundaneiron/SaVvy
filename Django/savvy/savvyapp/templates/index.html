@@ -75,6 +75,15 @@
         </div>
     </div>
 
+    {% if messages %}
+    <div id="popupMessage" class="popup-message">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+        <button onclick="closePopup()">Close</button>
+    </div>
+    {% endif %}
+
     <div id="signInPopup" class="signInPopup">
         <div class="signInPopup-content">
             <button class="close" id="closeSignIn" onclick="closeSignIn()">
@@ -102,7 +111,7 @@
             <form action="insert" method="POST">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label id="top" for="email">Email</label>
                     <input class="form-control" type="email" id="email" name="email" placeholder="Enter your email">
                 </div>
                 <div class="form-group">
@@ -121,8 +130,6 @@
                     <input id="submit" type="submit" value="Submit">
                 </div>
             </form>
-            
-           
         </div>
     </div>
 

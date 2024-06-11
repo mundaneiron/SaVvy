@@ -16,14 +16,13 @@ function closeSignUp() {
   document.getElementById('signInPopup').style.display = "block";
 }
 
-function validatePassword() {
-  var password = document.getElementById("newPassword");
-  var confirmPassword = document.getElementById("reenterPassword");
-  if (password.value != confirmPassword.value) {
-      confirmPassword.setCustomValidity("Passwords do not match");
-  } else {
-      confirmPassword.setCustomValidity('');
+window.onload = function() {
+  const popupMessage = document.getElementById('popupMessage');
+  if (popupMessage) {
+      popupMessage.style.display = 'block';
   }
+};
+
+function closePopup() {
+  document.getElementById('popupMessage').style.display = 'none';
 }
-newPassword.onchange = validatePassword;
-reenterPassword.onkeyup = validatePassword;
