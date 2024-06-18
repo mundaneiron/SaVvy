@@ -15,3 +15,7 @@ function closeSignUp() {
   document.getElementById('signUpPopup').style.display = "none";
   document.getElementById('signInPopup').style.display = "block";
 }
+
+function myFunction() {
+  window.location.href = "home";
+}

@@ -193,7 +193,7 @@ label {
 #usernameInput,
 #passwordInput {
     padding: 10px;
-    width: 300px;
+    width: 320px;
     font-size: 1em;
     margin-bottom: 5px;
 }
@@ -231,14 +231,14 @@ label {
     background-color: black;
     font-size: 1em;
     color: white;
-    width: 300px;
+    width: 320px;
     height: 45px;
     margin-bottom: 10px;
 }
 
 #signUpbtn {
     color: black;
-    width: 300px;
+    width: 320px;
     height: 45px;
     font-size: 1em;
     font-weight: bold;
@@ -260,17 +260,25 @@ label {
 }
 
 .signUp-form label{
+    padding: 10px;
+    color: black;
     font-size: 1em;
-    font-family: "Rubik", sans-serif;
     text-align: left;
+    font-family: "Rubik", sans-serif;
 }
 .signUp-form input {
-    width: 300px;
-    height: 45px;
+    padding: 10px;
+    width: 320px;
+    font-size: 1em;
+    margin-bottom: 5px;
 }
-
-
-
+#signUp-submit {
+    font-family: "Rubik", sans-serif;
+    width: 300px;
+    margin-top: 10px;
+    background-color: black;
+    color:white;
+}
 
 .footer {
     margin-top: 100px;

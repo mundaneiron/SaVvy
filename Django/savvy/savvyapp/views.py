@@ -2,6 +2,10 @@ from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from savvyapp.forms import Userinfo
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import Post
+import json
 
 def index(request):
     if request.method == "POST":
@@ -19,6 +23,9 @@ def index(request):
             messages.error(request, 'Invalid username or password.')
             
     return render(request, "index.html")
+
+def home(request):
+    return render(request, 'home.html')
         
 
 def insert(request):
@@ -34,3 +41,17 @@ def insert(request):
     else:
         form = Userinfo()
     return render(request, "index.html", {'form':form})
+
+
+def get_posts(request):
+    posts = Post.objects.all().order_by('-created_at')
+    post_list = [{"content": post.content, "created_at": post.created_at} for post in posts]
+    return JsonResponse(post_list, safe=False)
+
+@csrf_exempt
+def create_post(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        post = Post.objects.create(content=data['content'])
+        return JsonResponse({"id": post.id, "content": post.content, "created_at": post.created_at})
+
