@@ -3,88 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Twitter Clone</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        #postForm {
-            margin-bottom: 20px;
-        }
-        #posts {
-            list-style-type: none;
-            padding: 0;
-        }
-        .post {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/home.css' %}">
+    <title>Home</title>
 </head>
 <body>
-    <h1>Simple Twitter Clone</h1>
-    <form id="postForm">
-        {% csrf_token %}
-        <input type="text" id="content" placeholder="What's on your mind?" required>
-        <button type="submit">Post</button>
-    </form>
-    <ul id="posts"></ul>
 
-    <script>
-        document.getElementById('postForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const content = document.getElementById('content').value;
-    
-            fetch('/api/posts/create/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken') // Add CSRF token
-                },
-                body: JSON.stringify({ content })
-            })
-            .then(response => response.json())
-            .then(post => {
-                const postElement = document.createElement('li');
-                postElement.className = 'post';
-                postElement.textContent = post.content;
-                document.getElementById('posts').prepend(postElement);
-                document.getElementById('content').value = '';
-            })
-            .catch(error => console.error('Error:', error));  // Add error handling
-        });
-    
-        // Load existing posts
-        fetch('/api/posts/')
-            .then(response => response.json())
-            .then(posts => {
-                posts.forEach(post => {
-                    const postElement = document.createElement('li');
-                    postElement.className = 'post';
-                    postElement.textContent = post.content;
-                    document.getElementById('posts').append(postElement);
-                });
-            })
-            .catch(error => console.error('Error:', error));  // Add error handling
-    
-        // Helper function to get CSRF token
-        function getCookie(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                const cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    const cookie = cookies[i].trim();
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
-    </script>
+    <div class="post-mainContainer">
+    <h1>Create Post</h1>
+        <form id="postForm">
+            {% csrf_token %}
+            <input type="text" id="content" placeholder="What's on your mind?" required>
+            <button type="submit">Post</button>
+        </form>
+        <ul id="posts"></ul>
+    </div>
+
+    {% load static %}
+    <script src="{% static 'scripts/home_page.js' %}"></script>
     
 </body>
 </html>
