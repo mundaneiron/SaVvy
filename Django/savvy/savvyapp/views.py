@@ -5,28 +5,33 @@ from savvyapp.forms import Userinfo
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Post
+from .forms import LoginForm
+from .models import Userdetails
+
 import json
 
 def index(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(
-            username=username,
-            password=password
-            )
-        if user is not None:
-            login(request, user)
-            messages.success(request, 'You have successfully signed in.')
-            return redirect('homePage')
-        else:
-            messages.error(request, 'Invalid username or password.')
-            
     return render(request, "index.html")
 
 def home(request):
     return render(request, 'home.html')
-        
+
+def signin(request):
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            try:
+                user = Userdetails.objects.get(username=username, password=password)
+                request.session['user_id'] = user.id
+                messages.success(request, 'Login successful.')
+                return redirect('home')
+            except Userdetails.DoesNotExist:
+                messages.error(request, 'Invalid username or password.')
+    else:
+        form = LoginForm()
+    return render(request, "index.html", {'form': form})
 
 def insert(request):
     if request.method == "POST":

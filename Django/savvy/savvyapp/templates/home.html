@@ -9,11 +9,19 @@
 </head>
 <body>
 
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     <div class="post-mainContainer">
     <h1>Create Post</h1>
         <form id="postForm">
             {% csrf_token %}
-            <input type="text" id="content" placeholder="What's on your mind?" required>
+            <textarea type="text" id="content" placeholder="What's on your mind?" required></textarea>
             <button type="submit">Post</button>
         </form>
         <ul id="posts"></ul>
