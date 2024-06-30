@@ -23,7 +23,7 @@ class UserManager(BaseUserManager):
 
 class Userdetails(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
-    username = models.CharField(max_length=20, unique=True)
+    username = models.CharField(max_length=128, unique=True)
     password = models.CharField(max_length=128)
 
     is_staff = models.BooleanField(default=False)
@@ -44,4 +44,4 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.content[:50]
+        return self.title

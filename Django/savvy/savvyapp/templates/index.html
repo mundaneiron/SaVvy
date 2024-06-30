@@ -20,18 +20,20 @@
         <div class="nav-title">SaVvy</div>
         <ul class="nav-links">
             <li><a href="#signin" onclick="openSignIn()">SignIn</a></li>
-            <li><a href="#about" onClick="myFunction()">About</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#services">News</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     {% if messages %}
-    <ul>
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
+    <div id="messages" class="alert alert-success">
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
     {% endif %}
 
     <div class="firstDiv">

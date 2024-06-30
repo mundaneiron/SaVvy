@@ -25,10 +25,10 @@ def signin(request):
             try:
                 user = Userdetails.objects.get(username=username, password=password)
                 request.session['user_id'] = user.id
-                messages.success(request, 'Login successful.')
+                messages.success(request, 'Login successful')
                 return redirect('home')
             except Userdetails.DoesNotExist:
-                messages.error(request, 'Invalid username or password.')
+                messages.error(request, 'Invalid username or password')
     else:
         form = LoginForm()
     return render(request, "index.html", {'form': form})
@@ -39,10 +39,10 @@ def insert(request):
         if form.is_valid():
             try:
                 form.save()
-                messages.success(request, 'Signup successful, please login.')
+                messages.success(request, 'Signup successful, please login')
                 return redirect('homePage')
             except:
-                messages.error(request, 'An error occurred. Please try again.')
+                messages.error(request, 'An error occurred. Please try again')
     else:
         form = Userinfo()
     return render(request, "index.html", {'form':form})

@@ -16,6 +16,6 @@ function closeSignUp() {
   document.getElementById('signInPopup').style.display = "block";
 }
 
-function myFunction() {
-  window.location.href = "home";
-}
+setTimeout(function() {
+  document.getElementById('messages').style.display = 'none';
+}, 4000);
