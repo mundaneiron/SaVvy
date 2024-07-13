@@ -57,6 +57,16 @@ def get_posts(request):
 def create_post(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        post = Post.objects.create(content=data['content'])
-        return JsonResponse({"id": post.id, "content": post.content, "created_at": post.created_at})
+        title = data.get('title')
+        content = data.get('content')
+        if title and content: 
+            post = Post.objects.create(title=title, content=content)
+            return JsonResponse({'id': post.id, 'title': post.title, 'content': post.content})
+        return JsonResponse({'error': 'Title and content are required'}, status=400)
+
+@csrf_exempt
+def list_posts(request):
+    posts = Post.objects.all().order_by('-created_at')
+    data = [{'id': post.id, 'title': post.title, 'content': post.content} for post in posts]
+    return JsonResponse(data, safe=False)
 

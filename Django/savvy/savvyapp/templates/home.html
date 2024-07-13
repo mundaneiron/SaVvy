@@ -40,6 +40,7 @@
         <h1>Create Post</h1>
         <form id="postForm">
             {% csrf_token %}
+            <input type="text" id="title" placeholder="Title">
             <textarea type="text" id="content" placeholder="What's on your mind?" required></textarea>
             <button type="submit">Post</button>
         </form>
