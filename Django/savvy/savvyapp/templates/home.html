@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,23 @@
     <link rel="stylesheet" href="{% static 'style/home.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Home</title>
 </head>
+
 <body>
 
     <nav class="navbar">
         <div class="nav-title">SaVvy</div>
         <ul class="nav-links">
-            <li><a href="#Post" id="postLink"><i class="fa-sharp fa-thin fa-plus" style="color: #000000;"></i>Post</a></li>
-            <li><a href="#Explore">Explore</a></li>
-            <li><a href="#Profile">Profile</a></li>
+            <li><a href="#Post">Post</a></li>
+            <li><a href="#Explore"><i class="fa-regular fa-compass" style="color: #000000;"></i></a></li>
+            <li><a href="#Profile"><i class="fa-regular fa-user" style="color: #000000;"></i></a></li>
         </ul>
     </nav>
 
@@ -25,7 +32,7 @@
     <div id="messages" class="alert alert-success">
         <ul>
             {% for message in messages %}
-                <li>{{ message }}</li>
+            <li>{{ message }}</li>
             {% endfor %}
         </ul>
     </div>
@@ -40,7 +47,7 @@
         <h1>Create Post</h1>
         <form id="postForm">
             {% csrf_token %}
-            <input type="text" id="title" placeholder="Title">
+            <textarea type="text" id="title" placeholder="Title" required></textarea> <br>
             <textarea type="text" id="content" placeholder="What's on your mind?" required></textarea>
             <button type="submit">Post</button>
         </form>
@@ -48,6 +55,7 @@
 
     {% load static %}
     <script src="{% static 'scripts/home_page.js' %}"></script>
-    
+
 </body>
+
 </html>

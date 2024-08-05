@@ -6,7 +6,6 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Post
 from .forms import LoginForm
-from .models import Userdetails
 
 import json
 
@@ -22,30 +21,30 @@ def signin(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            try:
-                user = Userdetails.objects.get(username=username, password=password)
-                request.session['user_id'] = user.id
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
                 messages.success(request, 'Login successful')
                 return redirect('home')
-            except Userdetails.DoesNotExist:
+            else:
                 messages.error(request, 'Invalid username or password')
     else:
         form = LoginForm()
     return render(request, "index.html", {'form': form})
 
-def insert(request):
+def signup(request):
     if request.method == "POST":
         form = Userinfo(request.POST)
         if form.is_valid():
             try:
-                form.save()
+                form.save() 
                 messages.success(request, 'Signup successful, please login')
                 return redirect('homePage')
-            except:
-                messages.error(request, 'An error occurred. Please try again')
+            except Exception as e:
+                messages.error(request, f'An error occurred. Please try again: {e}')
     else:
         form = Userinfo()
-    return render(request, "index.html", {'form':form})
+    return render(request, "index.html", {'form': form})
 
 
 def get_posts(request):

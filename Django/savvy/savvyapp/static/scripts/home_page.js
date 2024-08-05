@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (post.title && post.content) {
                 const postElement = document.createElement('li');
                 postElement.className = 'post';
-                postElement.innerHTML = `<strong>${post.title}</strong><br>${post.content}`;  
+                postElement.innerHTML = `<strong>${post.title}</strong><br><br>${post.content}`;  
                 document.getElementById('posts').prepend(postElement);
                 document.getElementById('title').value = '';  
                 document.getElementById('content').value = '';  
@@ -71,3 +71,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         return cookieValue;
     }
 });
+
+setTimeout(function() {
+    document.getElementById('messages').style.display = 'none';
+  }, 4000);
+  

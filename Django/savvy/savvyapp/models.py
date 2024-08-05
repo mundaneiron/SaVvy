@@ -10,7 +10,7 @@ class UserManager(BaseUserManager):
 
         email = self.normalize_email(email)
         user = self.model(email=email, username=username)
-        user.set_password(password)
+        user.set_password(password)  
         user.save(using=self._db)
         return user
 
@@ -22,8 +22,8 @@ class UserManager(BaseUserManager):
         return user
 
 class Userdetails(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(unique=True)
     username = models.CharField(max_length=128, unique=True)
+    email = models.EmailField(unique=True)
     password = models.CharField(max_length=128)
 
     is_staff = models.BooleanField(default=False)

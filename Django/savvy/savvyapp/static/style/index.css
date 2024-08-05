@@ -39,7 +39,7 @@
     border-radius: 5px;
 }
 
-#messages {
+#error-messages {
     background-color: #eddbd4;
     border-color: #e6cec3;
     text-align: center;
@@ -48,105 +48,23 @@
     margin: 10px 0;
 }
 
-#messages ul li {
+#error-messages ul li {
     list-style-type: none;
 }
 
-.firstDiv {
-    text-align: center;
-    margin: 20px auto;
-}
-
-
-#headDiv1 {
-    font-family: "Rubik", sans-serif;
-    font-size: 1.2em;
-    color: black;
-}
-
-#paraDiv1 {
-    font-family: "Rubik", sans-serif;
-    font-size: 1em;
-    color: black;
-}
-
-#headDiv2 {
-    font-size: 1.2em;
-    font-family: "Rubik", sans-serif;
-    color: black;
-}
-
-#paraDiv2 {
-    font-family: "Rubik", sans-serif;
-    font-size: 1em;
-    color: black;
-}
-
-
-.card {
-    width: 1000px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    margin: auto;
-    margin-top: 10px;
-}
-
-.card img {
-    margin: 5px;
-    border-radius: 5px;
-    max-width: 99%;
-    height: auto;
-}
-
-.card h4 {
-    font-family: "Rubik", sans-serif;
-    font-size: 1.1em;
-}
-
-.card p {
-    font-family: "Rubik", sans-serif;
-    font-size: 1em;
-    font-weight: 100;
-}
-
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.card .container {
-    padding: 2px 16px;
-}
-
-.container {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.signInPopup-content {
+.signin_content {
     display: flex;
     padding: 0;
     border: none;
-    position: relative;
-}
-
-.close {
-    border: none;
-    background: none;
-    font-size: 23px;
-    font-weight: bold;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    z-index: 2;
-}
-
-.close:hover,
-.close:focus {
-    text-decoration: none;
-    cursor: pointer;
+    background-color: #fefefe;
+    text-align: left;
+    margin: 5% auto;
+    border: 1px solid #888;
+    width: 800px;
+    max-width: 800px;
+    height: 550px;
+    max-height: 550px;
+    box-sizing: border-box;
 }
 
 .left-image {
@@ -164,44 +82,18 @@
     align-items: center;
 }
 
-.signInPopup,
-.signUpPopup {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    padding-top: 60px;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.signInPopup-content {
-    background-color: #fefefe;
-    text-align: left;
-    margin: 5% auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 800px;
-    max-width: 800px;
-    height: 550px;
-    max-height: 550px;
-    box-sizing: border-box;
-    position: relative;
-}
-
 label {
     padding: 10px;
     color: black;
-    font-size: 1em;
+    font-size: 1.1em;
     font-family: "Rubik", sans-serif;
 }
 
 #usernameInput,
 #passwordInput {
     padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     width: 320px;
     font-size: 1em;
     margin-bottom: 5px;
@@ -222,13 +114,13 @@ label {
 .remember-me label {
     margin-left: 1px;
     font-family: "Rubik", sans-serif;
-    font-size: 0.8750em;
+    font-size: 0.9750em;
 }
 
 .forgot-password {
     text-decoration: none;
     font-family: "Rubik", sans-serif;
-    font-size: 0.8750em;
+    font-size: 0.9750em;
     color: #000;
 }
 
@@ -238,55 +130,106 @@ label {
 
 #signInbtn {
     background-color: black;
-    font-size: 1em;
+    border: 1px solid black;
+    border-radius: 6px;
+    font-size: 1.1em;
     color: white;
     width: 320px;
     height: 45px;
     margin-bottom: 10px;
 }
 
-#signUpbtn {
-    color: black;
-    width: 320px;
-    height: 45px;
-    font-size: 1em;
+.signUpText,
+.signInText {
     font-weight: bold;
-    margin-top: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.signUpPopup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+
 }
 
 .signUpPopup-content {
     background-color: #fefefe;
-    text-align: center;
-    margin: 5% auto;
-    padding: 0;
+    padding: 20px;
     border: 1px solid #888;
-    width: 500px;
-    max-width: 500px;
-    height: 600px;
-    max-height: 600px;
+    width: 1000px;
+    height: 750px;
     box-sizing: border-box;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.signUp-form label{
-    padding: 10px;
+.signUp-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signUp-form label {
+    width: 450px;
+    padding: 10px 0;
     color: black;
-    font-size: 1em;
+    font-size: 1.1em;
+    font-family: "Rubik", sans-serif;
+    display: flex;
+    justify-content: flex-start;
     text-align: left;
-    font-family: "Rubik", sans-serif;
 }
-.signUp-form input {
+
+.signUp-form input[type="email"],
+.signUp-form input[type="text"],
+.signUp-form input[type="password"] {
+    border-radius: 9px;
     padding: 10px;
-    width: 320px;
+    width: 450px;
     font-size: 1em;
-    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    box-sizing: border-box;
 }
+
+.close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
 #signUp-submit {
-    font-family: "Rubik", sans-serif;
-    width: 300px;
-    margin-top: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 450px;
     background-color: black;
-    color:white;
+    border-radius: 9px;
+    border: 1px solid black;
+    color: white;
+}
+
+#signUp-google {
+    margin: 10px;
+    padding: 10px;
+    width: 450px;
+    border-radius: 9px;
+    border: 1px solid #ccc;
+    color: black;
 }
 
 .footer {
@@ -315,6 +258,8 @@ label {
 
 .footer-content input {
     font-family: "Rubik", sans-serif;
+    border: 1px solid #000000;
+    background-color: #ffffff;
     width: 500px;
     height: 50px;
 }
@@ -326,4 +271,9 @@ label {
     font-family: "Rubik", sans-serif;
     padding: 10px 0;
     font-size: 0.9em;
+}
+
+#subbutton {
+    border: 1px solid #000000;
+    background-color: #ffffff;
 }
